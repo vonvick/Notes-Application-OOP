@@ -36,4 +36,24 @@ class NotesApplication {
     }
   }
 
+  search (search_text) {
+      console.log('Showing results for search: ' + search_text);
+      var results = ""
+      var author = this.author;
+      this.notes.forEach(function(note, id) {
+         if (note.includes(search_text)) {
+             results += 'Note ID: ' + (id + 1) + '\n';
+             results += note + '\n';
+             results += author;
+
+             return results;
+
+         }else if (!note.includes(search_text)) {
+              results += 'Could not find name in file';
+
+              return results;
+          }
+      });
+  };
+
 }
