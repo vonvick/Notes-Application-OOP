@@ -45,26 +45,30 @@ class NotesApplication {
       }
     }
     return "You did not enter a number";
-  }  
+  }
 
   search (search_text) {
-      console.log('Showing results for search: ' + search_text);
-      var results = ""
-      var author = this.author;
-      this.notes.forEach(function(note, id) {
-         if (note.includes(search_text)) {
-             results += 'Note ID: ' + (id + 1) + '\n';
-             results += note + '\n';
-             results += author;
-
-             return results;
-
-         }else if (!note.includes(search_text)) {
-              results += 'Could not find name in file';
-
-              return results;
-          }
-      });
+    console.log('Showing results for search: ' + search_text + '\n');
+    var result = "";
+    var count = 0;
+    var author = this.name;
+    if (search_text === "" || search_text === " ") {
+    	return "You did not enter a search text";
+    } else {
+      for (var i = 0; i < this.notes.length; i++) {
+   	    if (this.notes[i].indexOf(search_text) !== -1) {
+          result += 'Note ID ' + (i + 1) + '\n';
+          result += this.notes[i] + '\n';
+          result += author + '\n' + '\n';
+          count += 1;
+        }
+      }
+      if (count > 0) {
+    	return result;
+      } else {
+    	return "Could not find your search text";
+      }
+    }
   }
 
 }
