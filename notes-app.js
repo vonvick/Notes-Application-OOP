@@ -22,4 +22,18 @@ class NotesApplication {
     }
   }
 
+  // The function that
+  get (note_id) {
+    var results = "";
+    var note = this.notes[note_id - 1];
+    if (note) {
+        results += note;
+        return results;
+    }
+    else {
+        results += 'Note not found';
+        return results;
+    }
+  }
+
 }
