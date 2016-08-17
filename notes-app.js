@@ -25,15 +25,18 @@ class NotesApplication {
   // The function that
   getNotes (note_id) {
     var results = "";
-    var note = this.notes[note_id - 1];
-    if (note) {
-      results += note;
-      return results;
+    if (typeof note_id === 'number') {
+      var note = this.notes[note_id - 1];
+      if (note) {
+        results += note;
+        return results;
+      }
+      else {
+        results += 'Note not found';
+        return results;
+      }
     }
-    else {
-      results += 'Note not found';
-      return results;
-    }
+    return "You did not enter a number";
   }
 
   search (search_text) {
