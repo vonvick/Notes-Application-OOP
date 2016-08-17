@@ -88,4 +88,16 @@ class NotesApplication {
     }
   }
 
+  edit (note_id, new_content) {
+    var editResult = "";
+    if (this.notes.length < note_id - 1) {
+      editResult += 'Could not find the file to edit';
+      return editResult;
+    } else {
+      this.notes[note_id - 1] = new_content;
+      editResult += this.notes[note_id - 1];
+      return editResult;
+    }
+  }
+
 }
