@@ -1,4 +1,11 @@
 // create the class for the note Application
+class Note {
+  constructor (author, note_content) {
+    this.author = author;
+    this.note = note_content;
+  }
+
+}
 
 class NotesApplication {
   constructor (author) {
@@ -7,8 +14,9 @@ class NotesApplication {
   }
 
   // The function that creates a note
-  create (note_content) {
-    return this.notes.push(note_content);
+  create (author, note_content) {
+  	var newNote = new Note (author, note_content);
+    return this.notes.push(newNote.note);
   }
 
   // The function that lists the notes for an author
@@ -18,8 +26,8 @@ class NotesApplication {
       results += 'Note ID: ' + (i+1) + '\n';
       results += this.notes[i] + '\n';
       results += 'By Author: ' + this.name + '\n' + '\n';
-      return results;
     }
+    return results;
   }
 
   // The function that
@@ -37,7 +45,7 @@ class NotesApplication {
       }
     }
     return "You did not enter a number";
-  }
+  }  
 
   search (search_text) {
       console.log('Showing results for search: ' + search_text);
