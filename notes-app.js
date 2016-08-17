@@ -16,8 +16,8 @@ class NotesApplication {
   }
 
   // The function that creates a note
-  create (author, note_content) {
-  	var newNote = new Note (author, note_content);
+  create (note_content) {
+  	var newNote = new Note (name, note_content);
     return this.notes.push(newNote.note);
   }
 
