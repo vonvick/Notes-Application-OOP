@@ -18,7 +18,7 @@ class Note {
  * @extends {Note}
  * @constructor
  */
- class NotesApplication {
+class NotesApplication {
   //constructor for NoteApplication Class
   constructor (author) {
     this.name = author;
