@@ -21,27 +21,32 @@ class NotesApplication {
 
   // The function that lists the notes for an author
   listNotes () {
-    var results = "";
-    for (var i = 0; i < this.notes.length ; i++) {
-      results += 'Note ID: ' + (i+1) + '\n';
-      results += this.notes[i] + '\n';
-      results += 'By Author: ' + this.name + '\n' + '\n';
+    var listResults = "";
+    if (this.notes.length < 1) {
+      listResults += "You do not have any note here!";
+      return listResults;
+    } else {
+      for (var i = 0; i < this.notes.length ; i++) {
+        listResults += 'Note ID: ' + (i+1) + '\n';
+        listResults += this.notes[i] + '\n';
+        listResults += 'By Author: ' + this.name + '\n' + '\n';
+      }
+      return listResults;
     }
-    return results;
   }
 
   // The function that
   getNotes (note_id) {
-    var results = "";
+    var getResult = "";
     if (typeof note_id === 'number') {
       var note = this.notes[note_id - 1];
       if (note) {
-        results += note;
-        return results;
+        getResult += note;
+        return getResult;
       }
       else {
-        results += 'Note not found';
-        return results;
+        getResult += 'Note not found';
+        return getResult;
       }
     }
     return "You did not enter a number";
@@ -49,25 +54,37 @@ class NotesApplication {
 
   search (search_text) {
     console.log('Showing results for search: ' + search_text + '\n');
-    var result = "";
-    var count = 0;
+    var searchResult = "";
+    var searchCount = 0;
     var author = this.name;
     if (search_text === "" || search_text === " ") {
     	return "You did not enter a search text";
     } else {
       for (var i = 0; i < this.notes.length; i++) {
    	    if (this.notes[i].indexOf(search_text) !== -1) {
-          result += 'Note ID ' + (i + 1) + '\n';
-          result += this.notes[i] + '\n';
-          result += author + '\n' + '\n';
-          count += 1;
+          searchResult += 'Note ID ' + (i + 1) + '\n';
+          searchResult += this.notes[i] + '\n';
+          searchResult += author + '\n' + '\n';
+          searchCount += 1;
         }
       }
-      if (count > 0) {
-    	return result;
+      if (searchCount > 0) {
+    	return searchResult;
       } else {
-    	return "Could not find your search text";
+    	return 'Could not find your search text';
       }
+    }
+  }
+
+  delete (note_id) {
+    var deleted = "";
+    if (this.notes.length < note_id - 1) {
+      deleted += 'Could not find the file to delete';
+      return deleted;
+    } else {
+      deleted += this.notes.splice([note_id - 1 ],1);
+      var removed = this.notes[deleted];
+      return 'you have deleted ' + '\"'+ deleted + '\"' + ' from the list';
     }
   }
 
