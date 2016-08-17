@@ -1,5 +1,6 @@
 // create the class for the note Application
 class Note {
+  // constructor for Note Class
   constructor (author, note_content) {
     this.author = author;
     this.note = note_content;
@@ -8,6 +9,7 @@ class Note {
 }
 
 class NotesApplication {
+  //constructor for Note Class
   constructor (author) {
     this.name = author;
     this.notes = [];
@@ -99,5 +101,4 @@ class NotesApplication {
       return editResult;
     }
   }
-
 }
