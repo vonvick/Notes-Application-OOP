@@ -15,24 +15,24 @@ class NotesApplication {
   listNotes () {
     var results = "";
     for (var i = 0; i < this.notes.length ; i++) {
-        results += 'Note ID: ' + (i+1) + '\n';
-        results += this.notes[i] + '\n';
-        results += 'By Author: ' + this.author;
-        return results;
+      results += 'Note ID: ' + (i+1) + '\n';
+      results += this.notes[i] + '\n';
+      results += 'By Author: ' + this.name + '\n' + '\n';
+      return results;
     }
   }
 
   // The function that
-  get (note_id) {
+  getNotes (note_id) {
     var results = "";
     var note = this.notes[note_id - 1];
     if (note) {
-        results += note;
-        return results;
+      results += note;
+      return results;
     }
     else {
-        results += 'Note not found';
-        return results;
+      results += 'Note not found';
+      return results;
     }
   }
 
@@ -54,6 +54,6 @@ class NotesApplication {
               return results;
           }
       });
-  };
+  }
 
 }
