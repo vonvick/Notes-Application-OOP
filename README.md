@@ -3,9 +3,10 @@ A repository for a note taking application in OOP
 
 This application is designed using Object oriented javascript. It takes an argument by creating an instance of the class
 ```javascript
-new NotesApplication()
+new NotesApplication(author)
 ```
 the requirements for running the program are:
+
 ..* cloning the repository to your local machine and running it on your machine using babel or with node.js
 
 The application performs the following functions.
