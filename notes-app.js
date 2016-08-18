@@ -6,7 +6,7 @@
  */
 class Note {
   // constructor for Note Class
-  constructor (author, note_content) {
+  constructor(author, note_content) {
     this.author = author;
     this.note = note_content;
   }
@@ -20,19 +20,19 @@ class Note {
  */
 class NotesApplication {
   //constructor for NoteApplication Class
-  constructor (author) {
+  constructor(author) {
     this.name = author;
     this.notes = [];
   }
 
   // The function that creates a note
-  create (note_content) {
+  create(note_content) {
   	var newNote = new Note (name, note_content);
     return this.notes.push(newNote.note);
   }
 
   // The function that lists the notes for an author
-  listNotes () {
+  listNotes() {
     var listResults = "";
     if (this.notes.length < 1) {
       listResults += "You do not have any note here!";
@@ -48,7 +48,7 @@ class NotesApplication {
   }
 
   // The function that
-  getNotes (note_id) {
+  getNotes(note_id) {
     var getResult = "";
     if (typeof note_id === 'number') {
       var note = this.notes[note_id - 1];
@@ -64,7 +64,7 @@ class NotesApplication {
     return "You did not enter a number";
   }
 
-  search (search_text) {
+  search(search_text) {
     console.log('Showing results for search: ' + search_text + '\n');
     var searchResult = "";
     var searchCount = 0;
@@ -88,7 +88,7 @@ class NotesApplication {
     }
   }
 
-  delete (note_id) {
+  delete(note_id) {
     var deleted = "";
     if (this.notes.length < note_id - 1) {
       deleted += 'Could not find the file to delete';
@@ -100,7 +100,7 @@ class NotesApplication {
     }
   }
 
-  edit (note_id, new_content) {
+  edit(note_id, new_content) {
     var editResult = "";
     if (this.notes.length < note_id - 1) {
       editResult += 'Could not find the file to edit';
